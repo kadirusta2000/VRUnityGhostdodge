@@ -5,6 +5,7 @@ Temp/
 
 # Visual Studio cache directory
 .vs/
+*.vsconfig
 
 # Gradle cache directory
 .gradle/
@@ -41,3 +42,4 @@ sysinfo.txt
 *.unitypackage
 *.unitypackage.meta
 *.app
+*.cache
