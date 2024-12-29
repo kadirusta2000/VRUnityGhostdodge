@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnergyManager : MonoBehaviour
@@ -23,12 +24,12 @@ public class EnergyManager : MonoBehaviour
     {
         if (energy > 100)
         {
-            energy = 100;
+            energy = 100.0f;
         }
         else
         {
             energy += 0.1f;
-            energyText.SetText("Energy: " + energy + "/100");
+            energyText.SetText("Energy: " + Mathf.RoundToInt(energy) + "/100");
         }
     }
 }
