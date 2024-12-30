@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CollisionDetector : MonoBehaviour
 {
@@ -9,8 +10,13 @@ public class CollisionDetector : MonoBehaviour
     {
         if(other.CompareTag("EnemyProjectile"))
         {
-            HealthManager.removeHealth();
+            HealthManager.takeDamageToHealth();
             Debug.Log("lol");
+        }
+        else if(other.CompareTag("Pickup"))
+        {
+            other.gameObject.SendMessage("OnPickup"); //Legacy
+            //ExecuteEvents.Execute<IPickupable>(other.gameObject, null, (x, y) => x.OnPickup());
         }
     }
 }

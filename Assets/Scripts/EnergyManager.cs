@@ -6,13 +6,17 @@ using UnityEngine;
 
 public class EnergyManager : MonoBehaviour
 {
-    private float energy;
+    private static float energy;
     [SerializeField]
     private TextMeshProUGUI energyText;
+    private static float energyAcquisitionrate;
+    private static float energyCap;
     // Start is called before the first frame update
     void Start()
     {
         energy = 50f;
+        energyAcquisitionrate = 0.1f;
+        energyCap = 100.0f;
     }
 
     // Update is called once per frame
@@ -22,14 +26,26 @@ public class EnergyManager : MonoBehaviour
     }
     void increaseEnergy()
     {
-        if (energy > 100)
+        if (energy > energyCap)
         {
-            energy = 100.0f;
+            energy = energyCap;
         }
         else
         {
-            energy += 0.1f;
-            energyText.SetText("Energy: " + Mathf.RoundToInt(energy) + "/100");
+            energy += energyAcquisitionrate;
+            energyText.SetText("Energy: " + Mathf.RoundToInt(energy) + "/" + energyCap);
         }
+    }
+    public static void increaseAcquisitionrate(float rate)
+    {
+        energyAcquisitionrate = energyAcquisitionrate * (1.0f + rate);
+    }
+    public static void fillEnergyToCap()
+    {
+        energy = energyCap;
+    }
+    public static void increaseEnergyCap ()
+    {
+        energyCap += 10.0f;
     }
 }

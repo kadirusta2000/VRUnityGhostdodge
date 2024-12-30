@@ -9,10 +9,12 @@ public class HealthManager : MonoBehaviour
     private static float health;
     [SerializeField]
     private TextMeshProUGUI healthText;
+    private static float healthCap;
     // Start is called before the first frame update
     void Start()
     {
-        health = 100f;
+        health = 100.0f;
+        healthCap = 100.0f;
     }
 
     // Update is called once per frame
@@ -22,9 +24,9 @@ public class HealthManager : MonoBehaviour
     }
     void changeHealthText()
     {
-        healthText.SetText("Health: " + Mathf.RoundToInt(health) + "/100");
+        healthText.SetText("Health: " + Mathf.RoundToInt(health) + "/" + healthCap);
     }
-    public static void removeHealth()
+    public static void takeDamageToHealth()
     {
         if(health - 30f > 0)
         {
@@ -35,5 +37,17 @@ public class HealthManager : MonoBehaviour
             health = 0;
         }
         
+    }
+    public static void increaseHealthCap()
+    {
+        healthCap += 10.0f;
+    }
+    public static void healToHealthCap()
+    {
+        health = healthCap;
+    }
+    public static void heal(float healthAcquisition)
+    {
+        health += healthAcquisition;
     }
 }
