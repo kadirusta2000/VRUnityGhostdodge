@@ -22,11 +22,8 @@ public class PickupSpawnerManager : MonoBehaviour
     {
         Vector3 itemPos = new Vector3(0,0,0);
         itemPos = playerObject.transform.position;
-        itemPos.x += Random.Range(-10.0f, 10.0f); itemPos.z += Random.Range(-10.0f, 10.0f);
-            
+        itemPos.x += Random.Range(-10.0f, 10.0f); itemPos.z += Random.Range(-10.0f, 10.0f);    
         DecidePickupToSpawn().SendMessage("CreateInstance",itemPos);
-        //itemPos = playerObject.transform.position;
-        //itemPos.x += Random.Range(-10.0f, 10.0f); itemPos.y += Random.Range(-10.0f, 10.0f); itemPos.z += Random.Range(-10.0f, 10.0f);
     }
     GameObject DecidePickupToSpawn()
     {
@@ -37,8 +34,6 @@ public class PickupSpawnerManager : MonoBehaviour
             case 2: return FindInList("EnergyCapPickupSpawner");
             default: return FindInList("EnergyAcquisitionPickupSpawner");
         }
-        return null;
-
     }
     GameObject FindInList(string name)
     {
