@@ -7,12 +7,10 @@ public class PickupSpawnerManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject playerObject;
-    private List<GameObject> spawnerList = new List<GameObject>();
 
     private void Start()
     {
-        this.gameObject.GetChildGameObjects(spawnerList);
-        InvokeRepeating("SpawnPickupItem",10,10);
+        StartCoroutine(SpawnItemsOnRepeat());
     }
     void Update()
     {
@@ -22,7 +20,7 @@ public class PickupSpawnerManager : MonoBehaviour
     {
         Vector3 itemPos = new Vector3(0,0,0);
         itemPos = playerObject.transform.position;
-        itemPos.x += Random.Range(-10.0f, 10.0f); itemPos.z += Random.Range(-10.0f, 10.0f);    
+        itemPos.x += Random.Range(-10.0f, 10.0f); itemPos.y = 0; itemPos.z += Random.Range(-10.0f, 10.0f);    
         DecidePickupToSpawn().SendMessage("CreateInstance",itemPos);
     }
     GameObject DecidePickupToSpawn()
@@ -30,17 +28,19 @@ public class PickupSpawnerManager : MonoBehaviour
         int rng = Random.Range(1, 3);
         switch(rng)
         {
-            case 1: return FindInList("EnergyAcquisitionPickupSpawner");
-            case 2: return FindInList("EnergyCapPickupSpawner");
-            default: return FindInList("EnergyAcquisitionPickupSpawner");
+            case 1: return GameObject.Find("EnergyAcquisitionPickupSpawner"); //FindInList("EnergyAcquisitionPickupSpawner");
+            case 2: return GameObject.Find("EnergyCapPickupSpawner");
+            default: return GameObject.Find("EnergyAcquisitionPickupSpawner");
         }
     }
-    GameObject FindInList(string name)
+    IEnumerator SpawnItemsOnRepeat()
     {
-        foreach (GameObject item in spawnerList)
+        //GameObject[] pickups = GameObject.FindGameObjectsWithTag("Pickup");
+        while(GameObject.FindGameObjectsWithTag("Pickup").Length < 3)
         {
-            if (item.name.Equals(name)) return item;
+            SpawnPickupItem();
+            //pickups = GameObject.FindGameObjectsWithTag("Pickup");
+            yield return new WaitForSeconds(10f);
         }
-        return null;
     }
 }
