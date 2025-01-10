@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
 {
     private static float health;
     [SerializeField]
     private TextMeshProUGUI healthText;
+    [SerializeField]
+    private Image Healthbar;
     private static float healthCap;
     // Start is called before the first frame update
     void Start()
     {
-        health = 100.0f;
+        health = 0;
         healthCap = 100.0f;
     }
 
@@ -21,6 +24,8 @@ public class HealthManager : MonoBehaviour
     void Update()
     {
         changeHealthText();
+        heal(1);
+        Healthbar.fillAmount = health/healthCap;
     }
     void changeHealthText()
     {
