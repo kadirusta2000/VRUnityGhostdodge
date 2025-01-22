@@ -48,6 +48,9 @@ public class HealthManager : MonoBehaviour
     }
     public static void heal(float healthAcquisition)
     {
-        health += healthAcquisition;
+        if ((health + healthAcquisition) < healthCap)
+            health += healthAcquisition;
+        else
+            health = healthCap;
     }
 }
