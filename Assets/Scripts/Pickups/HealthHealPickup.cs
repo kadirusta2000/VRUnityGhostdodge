@@ -13,4 +13,9 @@ public class HealthHealPickup : MonoBehaviour, IPickupable
         HealthManager.heal(20.0f);
         Destroy(this.gameObject);
     }
+    void OnMouseDown()
+    {
+        EnergyManager.increaseAcquisitionrate(0.1f);
+        Destroy(this.gameObject);
+    }
 }

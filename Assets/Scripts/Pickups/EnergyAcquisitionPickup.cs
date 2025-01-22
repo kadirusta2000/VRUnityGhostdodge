@@ -12,7 +12,11 @@ public class EnergyAcquisitionPickup : MonoBehaviour, IPickupable
     public void OnPickup()
     {
         EnergyManager.increaseAcquisitionrate(0.1f);
-        //EnergyManager.increaseEnergyCap();
+        Destroy(this.gameObject);
+    }
+    void OnMouseDown()
+    {
+        EnergyManager.increaseAcquisitionrate(0.1f);
         Destroy(this.gameObject);
     }
 }
