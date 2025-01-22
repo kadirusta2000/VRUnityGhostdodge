@@ -487,6 +487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthText: {fileID: 1119618432}
+  Healthbar: {fileID: 2113841105}
 --- !u!114 &254207376
 MonoBehaviour:
   m_ObjectHideFlags: 0
