@@ -3,18 +3,25 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnergyManager : MonoBehaviour
 {
     private static float energy;
     [SerializeField]
-    private TextMeshProUGUI energyText;
+
     private static float energyAcquisitionrate;
     private static float energyCap;
+
+    [SerializeField]
+    private GameObject EnergyBar;
+    private Slider slider;
+
     // Start is called before the first frame update
     void Start()
     {
-        energy = 50f;
+        slider = EnergyBar.GetComponent<Slider>();
+        energy = 0f;
         energyAcquisitionrate = 0.1f;
         energyCap = 100.0f;
     }
@@ -23,6 +30,7 @@ public class EnergyManager : MonoBehaviour
     void Update()
     {
         increaseEnergy();
+        slider.value = energy/energyCap;
     }
     void increaseEnergy()
     {
@@ -33,7 +41,7 @@ public class EnergyManager : MonoBehaviour
         else
         {
             energy += energyAcquisitionrate;
-            energyText.SetText("Energy: " + Mathf.RoundToInt(energy) + "/" + energyCap);
+            
         }
     }
     public static void increaseAcquisitionrate(float rate)

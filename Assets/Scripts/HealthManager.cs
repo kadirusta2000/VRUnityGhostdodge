@@ -9,28 +9,23 @@ public class HealthManager : MonoBehaviour
 {
     private static float health;
     [SerializeField]
-    private TextMeshProUGUI healthText;
-    [SerializeField]
-    private Image Healthbar;
+    private GameObject Healthbar;
     private static float healthCap;
+    private Slider slider;
     // Start is called before the first frame update
     void Start()
     {
-        health = 0;
+        health = 100;
         healthCap = 100.0f;
+        slider = Healthbar.GetComponent<Slider>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        changeHealthText();
-        heal(1);
-        Healthbar.fillAmount = health/healthCap;
+        slider.value = health/healthCap;
     }
-    void changeHealthText()
-    {
-        healthText.SetText("Health: " + Mathf.RoundToInt(health) + "/" + healthCap);
-    }
+
     public static void takeDamageToHealth()
     {
         if(health - 30f > 0)
@@ -54,5 +49,9 @@ public class HealthManager : MonoBehaviour
     public static void heal(float healthAcquisition)
     {
         health += healthAcquisition;
+
+        health = Mathf.Clamp(health, health, healthCap);
     }
+
+
 }
