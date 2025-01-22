@@ -60,8 +60,22 @@ MonoBehaviour:
   Keys: 0700000001000000
   Values:
   - {fileID: -6456975096313900888}
-  - {fileID: -3986471188870218547}
---- !u!114 &2859406310213053472
+  - {fileID: 7193746684083939044}
+--- !u!114 &7193746684083939044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d236b7d11115f2143951f1e14045df39, type: 3}
+  m_Name: Standalone Settings
+  m_EditorClassIdentifier: 
+  m_LoaderManagerInstance: {fileID: 9066195584201617205}
+  m_InitManagerOnStart: 1
+--- !u!114 &9066195584201617205
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
