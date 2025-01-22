@@ -25,11 +25,14 @@ public class PickupSpawnerManager : MonoBehaviour
     }
     GameObject DecidePickupToSpawn()
     {
-        int rng = Random.Range(1, 3);
+        int rng = Random.Range(1, 5);
         switch(rng)
         {
             case 1: return GameObject.Find("EnergyAcquisitionPickupSpawner"); //FindInList("EnergyAcquisitionPickupSpawner");
             case 2: return GameObject.Find("EnergyCapPickupSpawner");
+            case 3: return GameObject.Find("HealtCapPickupSpawner");
+            case 4: return GameObject.Find("HealthHealPickupSpawner");
+            case 5: return GameObject.Find("HealthFullHealPickupSpawner");
             default: return GameObject.Find("EnergyAcquisitionPickupSpawner");
         }
     }
@@ -40,7 +43,7 @@ public class PickupSpawnerManager : MonoBehaviour
         {
             SpawnPickupItem();
             //pickups = GameObject.FindGameObjectsWithTag("Pickup");
-            yield return new WaitForSeconds(10f);
+            yield return new WaitForSeconds(20f);
         }
     }
 }
