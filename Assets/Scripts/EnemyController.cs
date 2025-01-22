@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] XROrigin playerCharacter;
+    [SerializeField] Transform playerTransform;
     private float minDistance = 1f;
     private float distance;
 
@@ -18,11 +18,11 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        distance = Vector3.Distance(transform.position, playerCharacter.transform.position);
+        distance = Vector3.Distance(transform.position, playerTransform.transform.position);
 
-        if (distance > minDistance )
+        if (distance > minDistance)
         {
-            transform.position = Vector3.MoveTowards(transform.position, playerCharacter.transform.position, minDistance);
+            transform.position = Vector3.MoveTowards(transform.position, playerTransform.transform.position, minDistance);
         }
     }
 }
