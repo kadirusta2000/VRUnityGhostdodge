@@ -15,7 +15,7 @@ public class HealthCapPickup : MonoBehaviour, IPickupable
     }
     void OnMouseDown()
     {
-        EnergyManager.increaseAcquisitionrate(0.1f);
+        HealthManager.increaseHealthCap();
         Destroy(this.gameObject);
     }
 }
