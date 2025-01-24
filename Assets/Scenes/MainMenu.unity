@@ -333,7 +333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 783426280}
   menuTheme: {fileID: 8300000, guid: 6ef9da0a67fd5dd42881dc1045af0466, type: 3}
-  gameTheme: {fileID: 0}
+  gameTheme: {fileID: 8300000, guid: 11281a709520e0f4e9e5b94708446db1, type: 3}
 --- !u!224 &1090293001 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2645993184049978758, guid: 22c5a6e0bb2e7a04d96edde4e5600000, type: 3}

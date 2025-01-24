@@ -6,6 +6,7 @@ TagManager:
   tags:
   - EnemyProjectile
   - Pickup
+  - Notifications
   layers:
   - Default
   - TransparentFX

@@ -119,3 +119,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba09c5f9d073d65459c32c386e09d461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickedUp:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4938715072632572569, guid: 983f8a259a9957e499ea8ebafd68dc74, type: 3}
+        m_TargetAssemblyTypeName: Notifications, Assembly-CSharp
+        m_MethodName: CreateNotification
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Gained Energy!
+          m_BoolArgument: 0
+        m_CallState: 2

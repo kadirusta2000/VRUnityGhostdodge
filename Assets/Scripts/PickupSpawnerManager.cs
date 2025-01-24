@@ -39,11 +39,11 @@ public class PickupSpawnerManager : MonoBehaviour
     IEnumerator SpawnItemsOnRepeat()
     {
         //GameObject[] pickups = GameObject.FindGameObjectsWithTag("Pickup");
-        while(GameObject.FindGameObjectsWithTag("Pickup").Length < 3)
+        while(GameObject.FindGameObjectsWithTag("Pickup").Length < 20)
         {
             SpawnPickupItem();
             //pickups = GameObject.FindGameObjectsWithTag("Pickup");
-            yield return new WaitForSeconds(20f);
+            yield return new WaitForSeconds(2f);
         }
     }
 }
