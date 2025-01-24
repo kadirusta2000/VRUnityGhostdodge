@@ -12,7 +12,7 @@ public class Notifications : MonoBehaviour
 
     public void CreateNotification(string input){
         
-        Notiftext.text = "help";
+        
         print(input);
     }
 }
