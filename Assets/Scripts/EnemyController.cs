@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using Unity.XR.CoreUtils;
 using UnityEngine;
 
@@ -8,17 +9,23 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField] Transform playerTransform;
     [SerializeField] GameObject projectile;
-    private float minDistance = 1f;
+    [SerializeField] float minDistance = 1f;
     private float distance;
     public float shootTimer = 2.0f;
-    public float projectileSpeed = 0.5f;
 
-    // Start is called before the first frame update
-    void Start()
+
+    private void FixedUpdate()
     {
-        
-    }
+        if (transform.position.y != playerTransform.position.y)
+        {
+            transform.position = new Vector3(playerTransform.position.x +1f,playerTransform.position.y,0);
+        }
 
+        if (distance > minDistance)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, 0.05f);
+        }
+    }
     // Update is called once per frame
     void Update()
     {
@@ -28,12 +35,7 @@ public class EnemyController : MonoBehaviour
             shoot();
             shootTimer = 2.0f;
         }
-        distance = Vector3.Distance(transform.position, playerTransform.transform.position);
-
-        if (distance > minDistance)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, minDistance);
-        }
+        distance = Vector3.Distance(transform.position, playerTransform.transform.position);   
     }
 
     void shoot()
