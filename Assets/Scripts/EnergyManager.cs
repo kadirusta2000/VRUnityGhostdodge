@@ -17,6 +17,8 @@ public class EnergyManager : MonoBehaviour
     private GameObject EnergyBar;
     private Slider slider;
 
+    [SerializeField] GameObject flashlight;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +39,7 @@ public class EnergyManager : MonoBehaviour
         if (energy > energyCap)
         {
             energy = energyCap;
+            flashlight.SetActive(true);
         }
         else
         {

@@ -9,38 +9,69 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField] Transform playerTransform;
     [SerializeField] GameObject projectile;
-    [SerializeField] float minDistance = 1f;
+    [SerializeField] float minDistance = 1.7f;
+    [SerializeField] Transform gunPosition;
+    [SerializeField] Animator animator;
     private float distance;
     public float shootTimer = 2.0f;
+    AnimatorClipInfo[] clipInfo;
+    string currentAnimation;
+    bool alive = true;
 
+    private void Start()
+    {
+        this.animator.SetBool("isNoticing", true);
 
+    }
     private void FixedUpdate()
     {
-        if (transform.position.y != playerTransform.position.y)
-        {
-            transform.position = new Vector3(playerTransform.position.x +1f,playerTransform.position.y,0);
-        }
+        if (alive) { 
+        Vector3 pos = transform.position;
+        float newY = Mathf.Sin(Time.time * 0.6f) +0.5f;
 
         if (distance > minDistance)
         {
-            transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, 0.05f);
+            transform.position = Vector3.MoveTowards(pos, playerTransform.position, 0.05f);
+        } else
+        {
+        transform.position = new Vector3(playerTransform.position.x + 1f, newY, 0.01f) * 0.2f;
+        }
+        /*
+        if (transform.position.y != playerTransform.position.y -0.6f)
+        {
+            transform.position = new Vector3(playerTransform.position.x +1f,Mathf.Lerp(playerTransform.position.y-0.9f, playerTransform.position.y - 0.3f,0.01f),0);
+        }
+        */
+
+        Vector3 targetPosition = new Vector3(playerTransform.position.x, pos.y, playerTransform.position.z);
+        transform.LookAt(targetPosition);
         }
     }
     // Update is called once per frame
     void Update()
     {
-        shootTimer -= Time.deltaTime;
-        if (shootTimer <= 0.0f)
+        if (alive)
         {
-            shoot();
-            shootTimer = 2.0f;
-        }
-        distance = Vector3.Distance(transform.position, playerTransform.transform.position);   
-    }
+            shootTimer -= Time.deltaTime;
+            if (shootTimer <= 0.0f)
+            {
+                shoot();
+                shootTimer = 2.0f;
+            }
+            distance = Vector3.Distance(transform.position, playerTransform.position);
 
+        }
+    }
     void shoot()
     {
-        GameObject projectileClone = Instantiate(projectile, transform.position, transform.rotation);
+        this.animator.SetBool("isNoticing", false);
+        this.animator.SetBool("isShooting", true);
+        clipInfo = this.animator.GetCurrentAnimatorClipInfo(0);
+        currentAnimation = clipInfo[0].clip.name;
+        if (currentAnimation == "Armature|Shoot")
+        {
+            GameObject projectileClone = Instantiate(projectile, gunPosition.position, transform.rotation);
+        }
         /*
         Vector3 direction = playerTransform.position - transform.position;
         print(direction);
@@ -48,5 +79,10 @@ public class EnemyController : MonoBehaviour
         projectileClone.velocity = direction; //transform.TransformDirection(Vector3.forward * 3);
         */
         //projectileClone.transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, 0.1f);
+    }
+
+    void FlashlightPressed()
+    {
+
     }
 }
