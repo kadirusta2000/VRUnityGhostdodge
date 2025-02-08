@@ -81,8 +81,8 @@ public class EnemyController : MonoBehaviour
         //projectileClone.transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, 0.1f);
     }
 
-    void FlashlightPressed()
+    public void Death()
     {
-
+        Destroy(gameObject);
     }
 }

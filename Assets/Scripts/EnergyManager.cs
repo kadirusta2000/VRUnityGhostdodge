@@ -19,6 +19,7 @@ public class EnergyManager : MonoBehaviour
 
     [SerializeField] GameObject flashlight;
 
+    private bool setActiveOnlyOnce = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +40,11 @@ public class EnergyManager : MonoBehaviour
         if (energy > energyCap)
         {
             energy = energyCap;
-            flashlight.SetActive(true);
+            if (setActiveOnlyOnce)
+            {
+                flashlight.SetActive(true);
+                setActiveOnlyOnce = false;
+            }
         }
         else
         {
