@@ -777,7 +777,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7924251088777252838, guid: 393dd4380feb1534195402047ff36418, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.2
       objectReference: {fileID: 0}
     - target: {fileID: 7924251088777252838, guid: 393dd4380feb1534195402047ff36418, type: 3}
       propertyPath: m_LocalPosition.y
@@ -785,7 +785,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7924251088777252838, guid: 393dd4380feb1534195402047ff36418, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.018
+      value: 0.013
       objectReference: {fileID: 0}
     - target: {fileID: 7924251088777252838, guid: 393dd4380feb1534195402047ff36418, type: 3}
       propertyPath: m_LocalRotation.w
@@ -820,8 +820,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 179594299}
     - target: {fileID: 8271784062322815807, guid: 393dd4380feb1534195402047ff36418, type: 3}
+      propertyPath: shootTimer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271784062322815807, guid: 393dd4380feb1534195402047ff36418, type: 3}
       propertyPath: minDistance
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8271784062322815807, guid: 393dd4380feb1534195402047ff36418, type: 3}
       propertyPath: playerTransform

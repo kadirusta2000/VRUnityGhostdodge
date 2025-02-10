@@ -16,7 +16,7 @@ public class EnergyAcquisitionPickup :  IPickupable
     }
     override public void OnPickup()
     {
-        EnergyManager.increaseAcquisitionrate(0.1f);
+        EnergyManager.increaseAcquisitionrate(0.005f);
         pickedUp.Invoke("");
         Destroy(this.gameObject);
     }

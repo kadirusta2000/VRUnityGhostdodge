@@ -11,7 +11,7 @@ public class HealthHealPickup : IPickupable
     override public void OnPickup()
     {
         pickedUp.Invoke("");        
-        HealthManager.heal(20.0f);
+        HealthManager.heal(30.0f);
         Destroy(this.gameObject);
     }
     void OnMouseDown()

@@ -9,14 +9,16 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField] Transform playerTransform;
     [SerializeField] GameObject projectile;
-    [SerializeField] float minDistance = 1.7f;
+    [SerializeField] float minDistance;
     [SerializeField] Transform gunPosition;
     [SerializeField] Animator animator;
+    [SerializeField] float shootTimer;
     private float distance;
-    public float shootTimer = 2.0f;
     AnimatorClipInfo[] clipInfo;
     string currentAnimation;
     bool alive = true;
+    bool isMoving = false;
+    float zValue = 0f;
 
     private void Start()
     {
@@ -26,29 +28,35 @@ public class EnemyController : MonoBehaviour
     private void FixedUpdate()
     {
         if (alive) { 
-        Vector3 pos = transform.position;
-        float newY = Mathf.Sin(Time.time * 0.6f) +0.5f;
+            Vector3 pos = transform.position;
+            float newY = Mathf.Sin(Time.time * 0.6f) +0.5f;
+            transform.RotateAround(playerTransform.position, Vector3.up, 15 * Time.deltaTime);
 
-        //if (distance > minDistance)
-        //{
-                //transform.position = Vector3.MoveTowards(pos, playerTransform.position, 0.05f);
-                transform.RotateAround(playerTransform.position, Vector3.up, 20 * Time.deltaTime);
-        //}
-        /*
-        else
-        {
-            transform.position = new Vector3(playerTransform.position.x + 1f, newY, 0.01f) * 0.2f;
-        }
-        /*
+            Vector3 targetPosition = new Vector3(playerTransform.position.x, pos.y, playerTransform.position.z);
+            transform.LookAt(targetPosition);
 
-        if (transform.position.y != playerTransform.position.y -0.6f)
-        {
-            transform.position = new Vector3(playerTransform.position.x +1f,Mathf.Lerp(playerTransform.position.y-0.9f, playerTransform.position.y - 0.3f,0.01f),0);
-        }
-        */
+            if (distance > minDistance)
+                transform.position = Vector3.MoveTowards(pos, playerTransform.position, 0.05f);
 
-        Vector3 targetPosition = new Vector3(playerTransform.position.x, pos.y, playerTransform.position.z);
-        transform.LookAt(targetPosition);
+            //if (distance > minDistance)
+            //{
+            //transform.position = Vector3.MoveTowards(pos, playerTransform.position, 0.05f);
+            //}
+            /*
+            else
+            {
+                transform.position = new Vector3(playerTransform.position.x + 1f, newY, 0.01f) * 0.2f;
+            }
+            /*
+
+            if (transform.position.y != playerTransform.position.y -0.6f)
+            {
+                transform.position = new Vector3(playerTransform.position.x +1f,Mathf.Lerp(playerTransform.position.y-0.9f, playerTransform.position.y - 0.3f,0.01f),0);
+            }
+            */
+
+
+
         }
     }
     // Update is called once per frame
@@ -84,7 +92,6 @@ public class EnemyController : MonoBehaviour
         */
         //projectileClone.transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, 0.1f);
     }
-
     public void Death()
     {
         Destroy(gameObject);

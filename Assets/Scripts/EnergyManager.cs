@@ -25,7 +25,7 @@ public class EnergyManager : MonoBehaviour
     {
         slider = EnergyBar.GetComponent<Slider>();
         energy = 0f;
-        energyAcquisitionrate = 0.1f;
+        energyAcquisitionrate = 0.025f;
         energyCap = 100.0f;
     }
 
