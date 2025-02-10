@@ -9,11 +9,12 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField] Transform playerTransform;
     [SerializeField] GameObject projectile;
-    [SerializeField] float minDistance;
     [SerializeField] Transform gunPosition;
     [SerializeField] Animator animator;
     [SerializeField] float shootTimer;
     private float distance;
+    private float minDistance = 1.5f;
+    private float maxDistance = 2f;
     AnimatorClipInfo[] clipInfo;
     string currentAnimation;
     bool alive = true;
@@ -35,8 +36,14 @@ public class EnemyController : MonoBehaviour
             Vector3 targetPosition = new Vector3(playerTransform.position.x, pos.y, playerTransform.position.z);
             transform.LookAt(targetPosition);
 
-            if (distance > minDistance)
+            if (distance > maxDistance)
                 transform.position = Vector3.MoveTowards(pos, playerTransform.position, 0.05f);
+
+            if (distance < minDistance)
+            {
+                Vector3 invertedPos = playerTransform.position + new Vector3(minDistance, 0f, minDistance);//Vector3.Scale(playerTransform.position,new Vector3(1f,0f, 1f));
+                transform.position = Vector3.MoveTowards(pos,invertedPos, 0.05f);
+            }
 
             //if (distance > minDistance)
             //{
@@ -94,6 +101,7 @@ public class EnemyController : MonoBehaviour
     }
     public void Death()
     {
-        Destroy(gameObject);
+        alive = false;
+        this.animator.SetBool("isDead", true);
     }
 }
