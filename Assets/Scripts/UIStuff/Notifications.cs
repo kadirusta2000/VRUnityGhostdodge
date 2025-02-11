@@ -7,12 +7,36 @@ using TMPro;
 public class Notifications : MonoBehaviour
 {
 
-    public TMP_Text Notiftext;
+    public static TMP_Text Notiftext;
 
 
-    public void CreateNotification(string input){
+    private static float timeToLive = 5;
+
+    private static bool NotifAlive = false;
+
+
+    public void Start(){
+        Notiftext = GetComponent<TextMeshProUGUI>();
+        Notiftext.text = "";
+    }
+
+    public static void CreateNotification(string input){
         
-        
-        print(input);
+        Notiftext.text = input;
+        NotifAlive = true;
+        timeToLive = 5;
+    }
+
+    public void Update(){
+        if(NotifAlive){
+        timeToLive -= Time.deltaTime;
+        }
+
+        Notiftext.color =  Color.Lerp(Color.red,Color.blue,Mathf.PingPong(Time.time,1));
+
+        if(timeToLive <= 0 && NotifAlive){
+            Notiftext.text = "";
+            NotifAlive = false;
+        }
     }
 }

@@ -11,7 +11,7 @@ public class CollisionDetector : MonoBehaviour
         if(other.CompareTag("EnemyProjectile"))
         {
             HealthManager.takeDamageToHealth();
-            Debug.Log("lol");
+            
         }
         else if(other.CompareTag("Pickup"))
         {
