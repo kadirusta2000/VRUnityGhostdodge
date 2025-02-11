@@ -17,12 +17,15 @@ public class EnergyManager : MonoBehaviour
     private GameObject EnergyBar;
     private Slider slider;
 
+    [SerializeField] GameObject flashlight;
+
+    private bool setActiveOnlyOnce = true;
     // Start is called before the first frame update
     void Start()
     {
         slider = EnergyBar.GetComponent<Slider>();
         energy = 0f;
-        energyAcquisitionrate = 0.1f;
+        energyAcquisitionrate = 0.025f;
         energyCap = 100.0f;
     }
 
@@ -37,6 +40,11 @@ public class EnergyManager : MonoBehaviour
         if (energy > energyCap)
         {
             energy = energyCap;
+            if (setActiveOnlyOnce)
+            {
+                flashlight.SetActive(true);
+                setActiveOnlyOnce = false;
+            }
         }
         else
         {

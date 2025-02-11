@@ -28,9 +28,9 @@ public class HealthManager : MonoBehaviour
 
     public static void takeDamageToHealth()
     {
-        if(health - 30f > 0)
+        if(health - 10f > 0)
         {
-            health -= 30f;
+            health -= 10f;
         }
         else
         {
