@@ -6,6 +6,10 @@ A game by Vivian, Kadir and Mirkan
 
 -----------------------------------------------------
 
+3D Modelling:
+
+Burgerboy
+
 Music:
 
 From Bensound.com/royalty-free-music
@@ -14,7 +18,9 @@ Main menu theme: Sci Fi
 
 Artist: Benjamin Tissot
 
+Sound Effects:
 
+Jesús Lastra
 
 Game Theme: Moose
 
