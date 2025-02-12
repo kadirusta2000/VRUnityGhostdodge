@@ -9,6 +9,8 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] Button flashlight;
     [SerializeField] GameObject flashlightObject;
+    [SerializeField] Image flashlightEffect;
+
     [SerializeField] GameObject displayText;
 
     [SerializeField] GameObject Crosshair;
@@ -22,6 +24,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject Crack;
     [SerializeField] GameObject Crack2;
     [SerializeField] GameObject Crack3;
+
     public static bool flashlightPressed = false;
     public static bool alive = true;
 
@@ -37,6 +40,12 @@ public class UIManager : MonoBehaviour
 
 
     void Update(){
+        if (flashlightEffect.color.a > 0f)
+        {
+            var tempColor = flashlightEffect.color;
+            tempColor.a = Mathf.Lerp(flashlightEffect.color.a, 0, 0.01f);
+            flashlightEffect.color = tempColor;
+        }
         float life = Lifebar.value;
 
         switch(life){
@@ -70,14 +79,16 @@ public class UIManager : MonoBehaviour
     void FlashlightClicked()
     {
         if(alive){
-        enemy.Death();
+            var tempColor = flashlightEffect.color;
+            tempColor.a = 0.9f;
+            flashlightEffect.color = tempColor;
+            enemy.Death();
 
-        deactiveUiElements();
+            deactiveUiElements();
 
 
-        Debug.Log(flashlightObject);
-        displayText.SetActive(true);
-        Overlay.SetActive(true);
+            displayText.SetActive(true);
+            Overlay.SetActive(true);
         }
     }
 
