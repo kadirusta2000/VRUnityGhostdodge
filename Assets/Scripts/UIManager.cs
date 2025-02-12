@@ -79,6 +79,7 @@ public class UIManager : MonoBehaviour
     void FlashlightClicked()
     {
         if(alive){
+            GetComponent<AudioSource>().Play();
             var tempColor = flashlightEffect.color;
             tempColor.a = 0.9f;
             flashlightEffect.color = tempColor;
