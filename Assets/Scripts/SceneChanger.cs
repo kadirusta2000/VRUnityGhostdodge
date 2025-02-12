@@ -19,6 +19,7 @@ public class SceneChanger : MonoBehaviour
     }
     public static void Credits()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("Credits");
     }
 

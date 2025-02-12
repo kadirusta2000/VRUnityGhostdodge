@@ -2,13 +2,24 @@
 
 
 
+
+
+
+
+
+
+
+
+
 A game by Vivian, Kadir and Mirkan
 
------------------------------------------------------
+------------------------------------------
 
 3D Modelling:
 
 Burgerboy
+
+------------------------------------------
 
 Music:
 
@@ -18,17 +29,15 @@ Main menu theme: Sci Fi
 
 Artist: Benjamin Tissot
 
-Sound Effects:
-
-Jesús Lastra
-
 Game Theme: Moose
 
 Artist: Benjamin Tissot
 
+Sound Effects:
 
+Jesï¿½s Lastra
 
-----------------------------------------------------
+------------------------------------------
 
 Fonts:
 
@@ -36,10 +45,11 @@ Title: Funky Rundkopf Two - Nicks Fonts
 
 UI: Zebulon - Pixel Sagas - Neale Davidson
 
-
----------------------------------------------------
+------------------------------------------
 
 Images:
 
-Cracks: https://www.pngfind.com/download/ibmhwT_png-file-size-cracked-line-png-transparent-png/
+Cracks: https://www.pngfind.com/download/
+
+ibmhwT_png-file-size-cracked-line-png-transparent-png/
 

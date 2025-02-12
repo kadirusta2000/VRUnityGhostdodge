@@ -10,7 +10,7 @@ public class Notifications : MonoBehaviour
     public static TMP_Text Notiftext;
 
 
-    private static float timeToLive = 5;
+    private static float timeToLive = 2;
 
     private static bool NotifAlive = false;
 
@@ -24,7 +24,7 @@ public class Notifications : MonoBehaviour
         
         Notiftext.text = input;
         NotifAlive = true;
-        timeToLive = 5;
+        timeToLive = 2;
     }
 
     public void Update(){

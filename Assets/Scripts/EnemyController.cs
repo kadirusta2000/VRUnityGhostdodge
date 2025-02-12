@@ -103,5 +103,11 @@ public class EnemyController : MonoBehaviour
     {
         alive = false;
         this.animator.SetBool("isDead", true);
+        Invoke("setTime",2);
+       
+    }
+
+    private void setTime(){
+        Time.timeScale = 0;
     }
 }

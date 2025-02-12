@@ -64,17 +64,12 @@ public class UIManager : MonoBehaviour
                 Overlay.SetActive(true);
                 displayTextContent.text ="Your device broke!";
                 displayText.SetActive(true);
+                Time.timeScale = 0;
                 break;
         }
         
 
-        if(Lifebar.value == 0){
-            alive = false;
-            deactiveUiElements();
-            Overlay.SetActive(true);
-            displayTextContent.text ="Your device broke!";
-            displayText.SetActive(true);
-        }
+
     }
     void FlashlightClicked()
     {
@@ -85,6 +80,7 @@ public class UIManager : MonoBehaviour
             flashlightEffect.color = tempColor;
             enemy.Death();
 
+            
             deactiveUiElements();
 
 
