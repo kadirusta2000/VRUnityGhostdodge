@@ -396,7 +396,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Credits
+  m_text: How to/Credits
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e6155409232dc0547bf8b9b9ffd348b9, type: 2}
   m_sharedMaterial: {fileID: -3385463738091350798, guid: e6155409232dc0547bf8b9b9ffd348b9, type: 2}
@@ -423,8 +423,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 9.9
+  m_fontSizeBase: 9.9
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
