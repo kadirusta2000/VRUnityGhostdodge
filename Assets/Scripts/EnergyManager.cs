@@ -54,7 +54,7 @@ public class EnergyManager : MonoBehaviour
     }
     public static void increaseAcquisitionrate(float rate)
     {
-        energyAcquisitionrate = energyAcquisitionrate * (1.0f + rate);
+        energyAcquisitionrate = energyAcquisitionrate + rate;
     }
     public static void fillEnergyToCap()
     {
